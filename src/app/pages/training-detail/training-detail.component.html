@@ -1,0 +1,109 @@
+<div class="min-h-screen bg-gray-50">
+  <!-- Breadcrumb -->
+  <nav class="bg-white border-b px-4 py-3">
+    <div class="container mx-auto">
+      <div class="flex items-center space-x-2 text-gray-600">
+        <a routerLink="/training" class="hover:text-green-600">Training</a>
+        <span>/</span>
+        <span class="text-gray-900">{{ trainingData.title }}</span>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <div class="bg-gradient-to-r from-green-600 to-green-800 text-white py-16">
+    <div class="container mx-auto px-4">
+      <h1 class="text-4xl font-bold mb-4">{{ trainingData.title }}</h1>
+      <p class="text-xl">{{ trainingData.description }}</p>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <div class="container mx-auto px-4 py-12">
+    <!-- Overview Section -->
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12">
+      <div class="lg:col-span-2">
+        <h2 class="text-2xl font-semibold mb-6">Program Overview</h2>
+        <div class="bg-white rounded-lg shadow-lg p-6">
+          <div class="prose max-w-none">
+            <h3 class="text-xl font-semibold mb-4">Key Features</h3>
+            <ul class="space-y-2">
+              <li *ngFor="let feature of trainingData.features" class="flex items-start">
+                <svg class="h-6 w-6 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                {{ feature }}
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sidebar -->
+      <div class="lg:col-span-1">
+        <div class="bg-white rounded-lg shadow-lg p-6">
+          <h3 class="text-xl font-semibold mb-4">Program Details</h3>
+          <div class="space-y-4">
+            <div>
+              <p class="text-gray-600">Duration</p>
+              <p class="font-medium">{{ trainingData.duration }}</p>
+            </div>
+            <div>
+              <p class="text-gray-600">Delivery</p>
+              <p class="font-medium">{{ trainingData.schedule }}</p>
+            </div>
+            <div>
+              <p class="text-gray-600">Pricing</p>
+              <p class="font-medium">{{ trainingData.pricing }}</p>
+            </div>
+            <button class="w-full bg-green-600 text-white py-3 rounded-lg hover:bg-green-700 transition-colors">
+              Enroll Now
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Curriculum Section -->
+    <div class="mb-12">
+      <h2 class="text-2xl font-semibold mb-6">Curriculum</h2>
+      <div class="space-y-4">
+        <div *ngFor="let module of trainingData.curriculum" class="bg-white rounded-lg shadow-lg overflow-hidden">
+          <button class="w-full text-left p-4 focus:outline-none" (click)="module.isOpen = !module.isOpen">
+            <div class="flex justify-between items-center">
+              <h3 class="text-lg font-medium">{{ module.title }}</h3>
+              <svg class="w-6 h-6 transform transition-transform" [ngClass]="{'rotate-180': module.isOpen}" fill="none"
+                stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </div>
+          </button>
+          <div class="p-4 bg-gray-50" *ngIf="module.isOpen">
+            <ul class="space-y-2">
+              <li *ngFor="let topic of module.topics" class="flex items-center">
+                <span class="w-2 h-2 bg-green-500 rounded-full mr-2"></span>
+                {{ topic }}
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Benefits Section -->
+    <div>
+      <h2 class="text-2xl font-semibold mb-6">Benefits</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div *ngFor="let benefit of trainingData.benefits" class="bg-white rounded-lg shadow-lg p-6">
+          <div class="text-green-600 mb-4">
+            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+          </div>
+          <p class="text-gray-800">{{ benefit }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

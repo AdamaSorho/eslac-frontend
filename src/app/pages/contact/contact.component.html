@@ -1,0 +1,102 @@
+<div class="min-h-screen bg-gray-50 py-12">
+  <div class="container mx-auto px-4">
+    <h1 class="text-3xl font-semibold text-gray-800 mb-8">Contacts:</h1>
+
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+      <!-- Contact Information -->
+      <div>
+        <div class="bg-white rounded-lg shadow-lg p-6 mb-8">
+          <h2 class="text-xl font-semibold text-gray-800 mb-4">Address</h2>
+          <p class="text-gray-600 mb-2">2 Plateaux Angré, Next to Rosier Programme 6</p>
+          <p class="text-gray-600 mb-2">Abidjan, Cote d'Ivoire</p>
+          <p class="text-gray-600 mb-4">
+            <a href="mailto:admin@eslac-ci.com" class="text-blue-600 hover:underline">
+              admin&commat;eslac-ci.com
+            </a>
+          </p>
+
+          <h2 class="text-xl font-semibold text-gray-800 mb-4">Telephone</h2>
+          <p class="text-gray-600">
+            <a href="tel:+225075826000" class="hover:text-blue-600">
+              +225 0758 26 00 00
+            </a>
+          </p>
+        </div>
+
+        <!-- Google Map -->
+        <div class="bg-white rounded-lg shadow-lg p-4">
+          <div class="aspect-w-16 aspect-h-9">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3972.4876563688085!2d-4.0164843!3d5.3889957!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNcKwMjMnMjAuMyJOIDTCsDAxJzA2LjQiVw!5e0!3m2!1sen!2sus!4v1630000000000!5m2!1sen!2sus"
+              width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" class="rounded-lg"></iframe>
+          </div>
+          <div class="flex mt-4 space-x-4">
+            <button
+              class="flex-1 px-4 py-2 bg-white border border-gray-300 rounded-md text-sm font-medium text-gray-700 hover:bg-gray-50"
+              (click)="toggleMapView('map')">
+              Map
+            </button>
+            <button
+              class="flex-1 px-4 py-2 bg-white border border-gray-300 rounded-md text-sm font-medium text-gray-700 hover:bg-gray-50"
+              (click)="toggleMapView('satellite')">
+              Satellite
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Contact Form -->
+      <div class="bg-white rounded-lg shadow-lg p-6">
+        <h2 class="text-xl font-semibold text-gray-800 mb-6">
+          Send us a message, ask for info, register...
+        </h2>
+
+        <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" class="space-y-4">
+          <div>
+            <label for="name" class="block text-sm font-medium text-gray-700">Name *</label>
+            <input type="text" id="name" formControlName="name"
+              class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-green-500 focus:ring-green-500"
+              [ngClass]="{'border-red-500': isFieldInvalid('name')}" />
+            <div *ngIf="isFieldInvalid('name')" class="text-red-500 text-sm mt-1">
+              Name is required
+            </div>
+          </div>
+
+          <div>
+            <label for="email" class="block text-sm font-medium text-gray-700">Email *</label>
+            <input type="email" id="email" formControlName="email"
+              class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-green-500 focus:ring-green-500"
+              [ngClass]="{'border-red-500': isFieldInvalid('email')}" />
+            <div *ngIf="isFieldInvalid('email')" class="text-red-500 text-sm mt-1">
+              Valid email is required
+            </div>
+          </div>
+
+          <div>
+            <label for="phone" class="block text-sm font-medium text-gray-700">Phone</label>
+            <input type="tel" id="phone" formControlName="phone"
+              class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-green-500 focus:ring-green-500" />
+          </div>
+
+          <div>
+            <label for="subject" class="block text-sm font-medium text-gray-700">Subject</label>
+            <input type="text" id="subject" formControlName="subject"
+              class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-green-500 focus:ring-green-500" />
+          </div>
+
+          <div>
+            <label for="message" class="block text-sm font-medium text-gray-700">Message</label>
+            <textarea id="message" formControlName="message" rows="6"
+              class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-green-500 focus:ring-green-500"></textarea>
+          </div>
+
+          <button type="submit"
+            class="w-full bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 transition-colors"
+            [disabled]="!contactForm.valid">
+            Send
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

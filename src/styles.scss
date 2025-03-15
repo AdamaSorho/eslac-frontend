@@ -1,1 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.custom-gradient {
+  background: linear-gradient(135deg, #22c55e 0%, #15803d 100%);
+}

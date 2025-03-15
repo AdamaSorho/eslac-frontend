@@ -1,0 +1,181 @@
+<div class="min-h-screen bg-gray-50">
+  <app-hero></app-hero>
+  <main class="container mx-auto px-4 py-8">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <app-mission></app-mission>
+      <app-offer></app-offer>
+      <app-team></app-team>
+    </div>
+    <div class="mt-16">
+      <app-news></app-news>
+    </div>
+    <div class="mt-16">
+      <app-testimonials></app-testimonials>
+    </div>
+  </main>
+</div>
+
+<!-- <div id="default-carousel" class="relative w-full" data-carousel="slide">
+  <div class="relative h-56 overflow-hidden rounded-lg md:h-96">
+    <div class="hidden duration-700 ease-in-out" data-carousel-item>
+      <img src="/assets/images/eslac.jpg"
+        class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+    </div>
+    <div class="hidden duration-700 ease-in-out" data-carousel-item>
+      <img src="/assets/images/leadership.jpg"
+        class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+    </div>
+    <div class="hidden duration-700 ease-in-out" data-carousel-item>
+      <img src="/assets/images/learn-french.jpg"
+        class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+    </div>
+    <div class="hidden duration-700 ease-in-out" data-carousel-item>
+      <img src="/assets/images/youth_activity.jpg"
+        class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+    </div>
+    <div class="hidden duration-700 ease-in-out" data-carousel-item>
+      <img src="/assets/images/jewlry.jpg"
+        class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+    </div>
+  </div>
+  <div class="absolute z-30 flex -translate-x-1/2 bottom-5 left-1/2 space-x-3 rtl:space-x-reverse">
+    <button type="button" class="w-3 h-3 rounded-full" aria-current="true" aria-label="Slide 1"
+      data-carousel-slide-to="0"></button>
+    <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 2"
+      data-carousel-slide-to="1"></button>
+    <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 3"
+      data-carousel-slide-to="2"></button>
+    <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 4"
+      data-carousel-slide-to="3"></button>
+    <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 5"
+      data-carousel-slide-to="4"></button>
+  </div>
+  <button type="button"
+    class="absolute top-0 start-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
+    data-carousel-prev>
+    <span
+      class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
+      <svg class="w-4 h-4 text-white dark:text-gray-800 rtl:rotate-180" aria-hidden="true"
+        xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 1 1 5l4 4" />
+      </svg>
+      <span class="sr-only">Previous</span>
+    </span>
+  </button>
+  <button type="button"
+    class="absolute top-0 end-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
+    data-carousel-next>
+    <span
+      class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
+      <svg class="w-4 h-4 text-white dark:text-gray-800 rtl:rotate-180" aria-hidden="true"
+        xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4" />
+      </svg>
+      <span class="sr-only">Next</span>
+    </span>
+  </button>
+</div>
+
+
+
+<section id="solutions" class="py-16">
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+    <div class="max-w-sm bg-white rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700">
+      <a href="#">
+        <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white text-center">Our Mission</h5>
+      </a>
+      <a href="#">
+        <img class="h-auto w-full" src="/assets/images/our_mission.jpg" alt="Our Mission" />
+      </a>
+      <div class="p-5">
+        Our mission is threefolds:
+
+        <ul class="list-disc pl-8 mb-5">
+          <li class="mt-2"> Training offer that combines Acquisition/Development of excellent knowledge and positive
+            character for
+            and immediate impact... </li>
+        </ul>
+        <a href="#"
+          class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-green-600 rounded-lg hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+          Read more
+          <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+            viewBox="0 0 14 10">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M1 5h12m0 0L9 1m4 4L9 9" />
+          </svg>
+        </a>
+      </div>
+    </div>
+
+
+
+    <div class="max-w-sm bg-white rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700">
+      <a href="#">
+        <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white text-center">The ESLAC Team</h5>
+      </a>
+      <a href="#">
+        <img class="rounded-t-lg" src="/assets/images/our_mission.jpg" alt="Our Mission" />
+      </a>
+      <div class="pt-5">
+        <p class="mb-3">At ESLAC, we are a multilingual and multidisciplinary team. </p>
+        <p class="mb-3">
+          Our team of Experts in specific subjects are also excellent communicators who transmit you their passion to
+          succeed.
+        </p>
+        <a href="#"
+          class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-green-600 rounded-lg hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+          Read more
+          <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+            viewBox="0 0 14 10">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M1 5h12m0 0L9 1m4 4L9 9" />
+          </svg>
+        </a>
+      </div>
+    </div>
+
+
+
+    <div class="max-w-sm bg-white rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700">
+      <a href="#">
+        <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white text-center">Our Offers</h5>
+      </a>
+      <a href="#">
+        <img class="rounded-t-lg" src="/assets/images/our_offer.jpg" alt="Our Mission" />
+      </a>
+      <div class="p-5">
+        ESLAC facilitates the acquisitions and development of essential skills through Training, Resouces and
+        facilities. More specifically, we offer:
+
+        <ol class="list-inside list-decimal pl-8 mb-5">
+          <li class="mt-2"> Training offer that combines Acquisition/Development of excellent...
+          </li>
+        </ol>
+        <a href="#"
+          class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-green-600 rounded-lg hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+          Read more
+          <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+            viewBox="0 0 14 10">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M1 5h12m0 0L9 1m4 4L9 9" />
+          </svg>
+        </a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section id="team" class="py-16 bg-gray-100">
+  <h3 class="text-xl font-bold text-center mb-8">Notre Équipe</h3>
+  <div class="text-center">
+    <img src="assets/coach-zed.png" alt="Coach ZED" class="w-40 h-40 mx-auto rounded-full">
+    <h4 class="font-bold mt-4">Coach ZED</h4>
+    <p class="text-gray-600">Leadership | Langues | Technologies</p>
+  </div>
+</section>
+
+<section id="training" class="py-16">
+  <h3 class="text-xl font-bold text-center mb-8">Nos Formations</h3>
+  <p class="text-gray-600 text-center">Discover a variety of training programs tailored for your success.</p>
+</section> -->

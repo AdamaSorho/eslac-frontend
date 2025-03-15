@@ -1,0 +1,116 @@
+<div class="bg-gradient-to-r from-gray-50 to-gray-100 min-h-screen py-12">
+  <div class="container mx-auto px-4">
+    <!-- Header Section -->
+    <div class="max-w-7xl mx-auto mb-12">
+      <h1 class="text-4xl font-bold text-gray-800 mb-4">Training Schedule</h1>
+      <p class="text-gray-600">Browse and register for upcoming training sessions</p>
+    </div>
+
+    <!-- Filters and Search -->
+    <div class="max-w-7xl mx-auto bg-white rounded-lg shadow-lg p-6 mb-8">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+        <!-- Search -->
+        <div class="md:col-span-2">
+          <label class="block text-sm font-medium text-gray-700 mb-2">Search Sessions</label>
+          <input type="text"
+            class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500"
+            placeholder="Search by title, trainer, or location" [(ngModel)]="searchTerm">
+        </div>
+
+        <!-- Date Filter -->
+        <div>
+          <label class="block text-sm font-medium text-gray-700 mb-2">Date Range</label>
+          <select class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500"
+            [(ngModel)]="selectedDateRange">
+            <option value="all">All Dates</option>
+            <option value="week">This Week</option>
+            <option value="month">This Month</option>
+            <option value="quarter">Next 3 Months</option>
+          </select>
+        </div>
+
+        <!-- Level Filter -->
+        <div>
+          <label class="block text-sm font-medium text-gray-700 mb-2">Level</label>
+          <select class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500"
+            [(ngModel)]="selectedLevel">
+            <option value="all">All Levels</option>
+            <option value="Beginner">Beginner</option>
+            <option value="Intermediate">Intermediate</option>
+            <option value="Advanced">Advanced</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sessions Grid -->
+    <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div *ngFor="let session of filteredSessions"
+        class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
+        <!-- Session Header -->
+        <div class="p-4 bg-blue-600 text-white">
+          <h3 class="text-xl font-semibold mb-2">{{session.title}}</h3>
+          <p class="text-blue-100">with {{session.trainer}}</p>
+        </div>
+
+        <!-- Session Details -->
+        <div class="p-6">
+          <div class="mb-4">
+            <div class="flex items-center mb-2">
+              <svg class="w-5 h-5 text-gray-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+              </svg>
+              <span class="text-gray-700">{{session.date}}</span>
+            </div>
+            <div class="flex items-center mb-2">
+              <svg class="w-5 h-5 text-gray-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+              <span class="text-gray-700">{{session.time}} ({{session.duration}})</span>
+            </div>
+            <div class="flex items-center mb-2">
+              <svg class="w-5 h-5 text-gray-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+              </svg>
+              <span class="text-gray-700">{{session.location}}</span>
+            </div>
+          </div>
+
+          <!-- Level Badge -->
+          <div class="mb-4">
+            <span [ngClass]="{
+              'bg-green-100 text-green-800': session.level === 'Beginner',
+              'bg-yellow-100 text-yellow-800': session.level === 'Intermediate',
+              'bg-red-100 text-red-800': session.level === 'Advanced'
+            }" class="px-3 py-1 rounded-full text-sm font-medium">
+              {{session.level}}
+            </span>
+          </div>
+
+          <!-- Capacity -->
+          <div class="mb-4">
+            <div class="flex justify-between text-sm text-gray-600 mb-1">
+              <span>Available Seats</span>
+              <span>{{session.enrolled}}/{{session.capacity}}</span>
+            </div>
+            <div class="w-full bg-gray-200 rounded-full h-2">
+              <div class="bg-blue-600 h-2 rounded-full"
+                [style.width]="(session.enrolled / session.capacity * 100) + '%'"></div>
+            </div>
+          </div>
+
+          <!-- Register Button -->
+          <button class="w-full bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition-colors"
+            [disabled]="session.enrolled >= session.capacity" (click)="registerForSession(session)">
+            {{session.enrolled >= session.capacity ? 'Session Full' : 'Register Now'}}
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
