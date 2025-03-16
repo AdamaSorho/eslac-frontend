@@ -15,8 +15,8 @@ COPY nginx.conf /etc/nginx/conf.d/default.conf
 RUN mkdir -p /etc/nginx/ssl
 
 # Copy SSL certificates (you'll need to have these files available)
-COPY ./ssl/fullchain.pem /etc/nginx/ssl/
-COPY ./ssl/privkey.pem /etc/nginx/ssl/
+COPY /etc/letsencrypt/live/eslac-ci.byzedcoaching.com/fullchain.pem /etc/nginx/ssl/
+COPY /etc/letsencrypt/live/eslac-ci.byzedcoaching.com/privkey.pem /etc/nginx/ssl/
 
 EXPOSE 80 443
 CMD ["nginx", "-g", "daemon off;"]
