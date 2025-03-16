@@ -10,13 +10,5 @@ RUN npm run build -- --configuration production
 FROM nginx:alpine
 COPY --from=build /app/dist/eslac-frontend /usr/share/nginx/html
 COPY nginx.conf /etc/nginx/conf.d/default.conf
-
-# Create directory for SSL certificates
-RUN mkdir -p /etc/nginx/ssl
-
-# Copy SSL certificates to the container
-COPY ./ssl/fullchain.pem /etc/nginx/ssl/
-COPY ./ssl/privkey.pem /etc/nginx/ssl/
-
 EXPOSE 80 443
 CMD ["nginx", "-g", "daemon off;"]
